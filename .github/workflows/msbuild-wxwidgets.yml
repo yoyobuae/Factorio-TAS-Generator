@@ -22,13 +22,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Factorio-TAS-Generator
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           path: Factorio-TAS-Generator
           submodules: 'true'
 
       - name: Checkout WX
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           repository: WxWidgets/WxWidgets
           ref: v3.3.2
