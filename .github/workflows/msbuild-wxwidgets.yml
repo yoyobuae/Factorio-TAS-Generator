@@ -57,14 +57,14 @@ jobs:
         if: steps.cache-wx.outputs.cache-hit != 'true'
         shell: cmd
         run: |
-          msbuild "wxWidgets\build\msw\wx_vc17.sln" /Build "Release|x64"
+          msbuild "wxWidgets\build\msw\wx_vc17.sln" /m /p:Configuration="Release|x64"
 
       # Builds WX static library
       - name: Build WX 32-bit
         if: steps.cache-wx.outputs.cache-hit != 'true'
         shell: cmd
         run: |
-          build "wxWidgets\build\msw\wx_vc17.sln" /Build "Release|Win32"
+          msbuild "wxWidgets\build\msw\wx_vc17.sln" /m /p:Configuration="Release|Win32"
 
       # Build our program
       - name: Build Factorio-TAS-Generator
