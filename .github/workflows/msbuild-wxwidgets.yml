@@ -57,14 +57,14 @@ jobs:
         if: steps.cache-wx.outputs.cache-hit != 'true'
         shell: cmd
         run: |
-          msbuild "wxWidgets\build\msw\wx_vc17.sln" /m /p:Configuration="Release|x64"
+          msbuild "wxWidgets\build\msw\wx_vc17.sln" /m /p:Configuration="Release" /p:Platform="x64"
 
       # Builds WX static library
       - name: Build WX 32-bit
         if: steps.cache-wx.outputs.cache-hit != 'true'
         shell: cmd
         run: |
-          msbuild "wxWidgets\build\msw\wx_vc17.sln" /m /p:Configuration="Release|Win32"
+          msbuild "wxWidgets\build\msw\wx_vc17.sln" /m /p:Configuration="Release" /p:Platform="Win32"
 
       # Build our program
       - name: Build Factorio-TAS-Generator
@@ -73,7 +73,7 @@ jobs:
         run: |
           dir "Factorio-TAS-Generator"
           SET WX_BUILD_DIR=..\..\wxWidgets
-          msbuild "Factorio-TAS-Generator\Factorio-TAS-Generator.sln" /m /p:Configuration="Release|x64"
+          msbuild "Factorio-TAS-Generator\Factorio-TAS-Generator.sln" /m /p:Configuration="Release" /p:Platform="x64"
           dir /S "Factorio-TAS-Generator"
 
       # Build our program
@@ -83,7 +83,7 @@ jobs:
         run: |
           dir "Factorio-TAS-Generator"
           SET WX_BUILD_DIR=..\..\wxWidgets
-          msbuild "Factorio-TAS-Generator\Factorio-TAS-Generator.sln" /m /p:Configuration="Release|x86"
+          msbuild "Factorio-TAS-Generator\Factorio-TAS-Generator.sln" /m /p:Configuration="Release" /p:Platform="Win32"
           dir /S "Factorio-TAS-Generator"
 
       # Upload the artifacts
