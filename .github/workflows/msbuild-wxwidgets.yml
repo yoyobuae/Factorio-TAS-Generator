@@ -87,21 +87,21 @@ jobs:
           dir /S "Factorio-TAS-Generator"
 
       # Upload the artifacts
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         if: steps.build-Factorio-TAS-Generator-x86.outcome == 'success'
         with:
           name: Factorio-TAS-Generator-${{ runner.os }}-64bit-executable-artifact
           path: Factorio-TAS-Generator/*.exe
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         if: steps.build-Factorio-TAS-Generator-x86.outcome == 'success'
         with:
           name: Factorio-TAS-Generator-${{ runner.os }}-32bit-executable-artifact
           path: Factorio-TAS-Generator/*.exe
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: Factorio-TAS-Generator-${{ runner.os }}-error-64bit-log-artifact
           path: Factorio-TAS-Generator/*.log
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: Factorio-TAS-Generator-${{ runner.os }}-error-32bit-log-artifact
           path: Factorio-TAS-Generator/*.log
