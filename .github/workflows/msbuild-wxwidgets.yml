@@ -73,7 +73,7 @@ jobs:
         run: |
           dir "Factorio-TAS-Generator"
           SET WX_BUILD_DIR=..\..\wxWidgets
-          msbuild "Factorio-TAS-Generator\Factorio-TAS-Generator.sln" /Build "Release|x64"
+          msbuild "Factorio-TAS-Generator\Factorio-TAS-Generator.sln" /m /p:Configuration="Release|x64"
           dir /S "Factorio-TAS-Generator"
 
       # Build our program
@@ -83,7 +83,7 @@ jobs:
         run: |
           dir "Factorio-TAS-Generator"
           SET WX_BUILD_DIR=..\..\wxWidgets
-          msbuild "Factorio-TAS-Generator\Factorio-TAS-Generator.sln" /Build "Release|x86"
+          msbuild "Factorio-TAS-Generator\Factorio-TAS-Generator.sln" /m /p:Configuration="Release|x86"
           dir /S "Factorio-TAS-Generator"
 
       # Upload the artifacts
